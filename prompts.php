@@ -1,4 +1,7 @@
-<?php $prompts = [
+<?php 
+$genre = $_GET['genre'] ?? 'default'; // $_GET is an array. 
+
+$prompts = [
 'romance' => 
 ["Write a short story where one character acts as a love cupid for a couple and ends up finding their own soulmate by the end.",
  "Write a scene where the main character realizes the person they hated the most was actually their soulmate.",
@@ -27,4 +30,11 @@
 "Write about ways we can manipulate our brain to turn boring tasks into interesting ones.",
 "Analyze how the mind of a narcissist works."]
 ];
+
+if(array_key_exists($prompts, $genre)){
+    $list = $prompts[$genre];
+    echo $list[array_rand($list)];
+} else {
+    echo 'Genre does not exist.';
+}
     ?>
